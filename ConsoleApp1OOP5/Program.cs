@@ -43,6 +43,17 @@
             //arabicSpeaker.Greet(); // Output: Ahlan
             //englishSpeaker.Greet(); // Output: Hello
             #endregion
+            #region Q3
+            //deep coping copies the object and all nested objects, creating fully independent duplicates.
+            // value types are copied by value independently, while reference type new objects created (not shared)
+            //shallow coping copies the object but copies references for reference-type fields.
+            // value types are copied by value independently, while reference types are shared(inner object same)
+            // performance: shallow copy is faster than deep copy because it does not create new objects for reference-type fields.
+            //memory usage: shallow copy uses less memory than deep copy because it does not create new objects for reference-type fields.
+            //shallow copy use when object is immutable, no nested reference state, performance is critical,
+            //while deep copy is used when objects must be isolated, modifications should not affect original.
+            //Changing a referenced object in one copy will affect the other copy in shallow copy.
+            #endregion
         }
     }
 }
