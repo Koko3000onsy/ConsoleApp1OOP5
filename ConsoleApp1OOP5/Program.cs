@@ -59,6 +59,35 @@
             //QA - Testing
 
             #endregion
+            Cinema cinema = new Cinema();
+            cinema.open();
+            var ticket1 = new Standard_Ticket("allemby 8 giga", "a-5", 80);
+            var ticket2 = new VIP("avengers", 150, true,  60);
+            var ticket3 = new IMAX("finaldestination3",  220, false);
+            ticket1.Book();
+            ticket2.Book();
+            ticket3.Book();
+            cinema.addTicket(ticket1);
+            cinema.addTicket(ticket2);
+            cinema.addTicket(ticket3);
+            cinema.printTickets();
+            Console.WriteLine();
+            Console.WriteLine(" Clone Test ");
+            IMAX clone = (IMAX)ticket3.Clone();
+            clone.MovieName = "Interstellar";
+            Console.WriteLine(" Original Ticket ");
+            ticket3.Print();
+            Console.WriteLine(" Cloned Ticket ");
+            clone.Print();
+            Console.WriteLine();
+            Console.WriteLine(" After Cancel");
+            ticket1.cancel();
+            ticket1.Print();
+            Console.WriteLine();
+            BookingHelper helper = new BookingHelper();
+            helper.PrintAll(new IPrint[] { ticket1, ticket2, ticket3 });
+            Console.WriteLine();
+            cinema.close();
         }
     }
 }
